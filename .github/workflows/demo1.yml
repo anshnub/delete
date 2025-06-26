@@ -5,6 +5,11 @@ on:
     branches:
       - master
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write  # ✅ This is the key permission needed
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -19,7 +24,7 @@ jobs:
     - name: Upload static files as artifact
       uses: actions/upload-pages-artifact@v3
       with:
-        path: .  # Adjust if your HTML file is in a subfolde
+        path: .
 
     - name: Deploy to GitHub Pages
       uses: actions/deploy-pages@v2
