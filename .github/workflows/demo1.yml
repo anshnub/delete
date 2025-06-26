@@ -19,7 +19,7 @@ jobs:
     - name: Upload static files as artifact
       uses: actions/upload-pages-artifact@v3
       with:
-        path: .  # Adjust if your HTML file is in a subfolder
+        path: .  # Adjust if your HTML file is in a subfolde
 
     - name: Deploy to GitHub Pages
       uses: actions/deploy-pages@v2
