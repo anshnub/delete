@@ -1,19 +1,21 @@
-name: Simple HTML Change Checker
+name: Deploy Static HTML to GitHub Pages
 
 on:
   push:
-    paths:
-      - '**.html'  # Trigger only when HTML files change
+    branches:
+      - master  # or your default branch
 
 jobs:
-  check-html:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: List changed HTML files
-        run: |
-          echo "HTML files changed. Running basic checks..."
-          ls *.html || echo "No HTML files found in root directory."
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+
+      - name: Upload HTML files
+        uses: actions/upload-pages-artifact@v2
+        
